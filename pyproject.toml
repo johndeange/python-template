@@ -7,7 +7,9 @@ authors = [
     { name = "John DeAngelis", email = "johndeange@pm.me" }
 ]
 requires-python = ">=3.14"
-dependencies = []
+dependencies = [
+    "pydantic>=2.0",
+]
 
 [project.scripts]
 python-template = "python_template:main"
@@ -18,6 +20,7 @@ build-backend = "uv_build"
 
 [dependency-groups]
 dev = [
+    "mypy>=1.0",
     "pre-commit>=4.0.0",
     "pytest>=9.0.2",
     "pytest-cov>=7.1.0",
@@ -36,3 +39,7 @@ select = ["E", "F", "I", "UP"]  # pycodestyle, pyflakes, isort, pyupgrade
 
 [tool.ruff.format]
 quote-style = "double"
+
+[tool.mypy]
+strict = true
+plugins = ["pydantic.mypy"]
