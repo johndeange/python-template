@@ -1,0 +1,38 @@
+[project]
+name = "python-template"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "John DeAngelis", email = "johndeange@pm.me" }
+]
+requires-python = ">=3.14"
+dependencies = []
+
+[project.scripts]
+python-template = "python_template:main"
+
+[build-system]
+requires = ["uv_build>=0.10.4"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pre-commit>=4.0.0",
+    "pytest>=9.0.2",
+    "pytest-cov>=7.1.0",
+    "ruff>=0.15.7",
+]
+
+[tool.ruff]
+line-length = 88
+target-version = "py314"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]  # pycodestyle, pyflakes, isort, pyupgrade
+
+[tool.ruff.format]
+quote-style = "double"
